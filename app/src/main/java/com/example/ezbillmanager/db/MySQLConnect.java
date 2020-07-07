@@ -10,8 +10,8 @@ public class MySQLConnect {
 
     private Connection cn;
     public ResultSet rs;
-
-    public String SelectUser(int id)
+    //查找用户信息
+    public boolean User(int id,String password)
     {
         String x="";
         try {
@@ -32,24 +32,35 @@ public class MySQLConnect {
             e.printStackTrace();
         }
 
-        return x;
+        return password.equals(x);
     }
-
-    public billinfo SelectBill(int id)
+    //按时间和id查找账单
+    public billinfo[] SelectBill(String time,int userid)
     {
-        billinfo bill=new billinfo();
+        billinfo[] bill=null;
         try {
-            PreparedStatement pps=cn.prepareStatement("select * from billinfo where id=?");
-            pps.setInt(1,id);
-
+            PreparedStatement pps=cn.prepareStatement("select * from billinfo where time=? and userid=?");
+            pps.setString(1,time);
+            pps.setInt(2,userid);
             rs=pps.executeQuery();
 
+            int i=0;
+            while(rs.next())
+            {
+                i++;
+            }
+            rs.beforeFirst();
+            bill=new billinfo[i];
+            int j=0;
             while (rs.next())
             {
-                bill.id=id;
-                bill.time=rs.getString("time");
-                bill.type=rs.getString("type");
-                bill.money=rs.getInt("money");
+                bill[j]=new billinfo();
+                bill[j].id=rs.getInt("id");
+                bill[j].userid=rs.getInt("userid");
+                bill[j].time=rs.getString("time");
+                bill[j].type=rs.getString("type");
+                bill[j].money=rs.getInt("money");
+                j++;
             }
         }
 
@@ -59,7 +70,41 @@ public class MySQLConnect {
 
         return bill;
     }
+    //查找该id下的所有账单
+    public billinfo[] SelectBill(int userid)
+    {
+        billinfo[] bill=null;
+        try {
+            PreparedStatement pps=cn.prepareStatement("select * from billinfo where userid=?");
+            pps.setInt(1,userid);
+            rs=pps.executeQuery();
 
+            int i=0;
+            while(rs.next())
+            {
+                i++;
+            }
+            rs.beforeFirst();
+            bill=new billinfo[i];
+            int j=0;
+            while (rs.next())
+            {
+                bill[j]=new billinfo();
+                bill[j].id=rs.getInt("id");
+                bill[j].userid=rs.getInt("userid");
+                bill[j].time=rs.getString("time");
+                bill[j].type=rs.getString("type");
+                bill[j].money=rs.getInt("money");
+                j++;
+            }
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return bill;
+    }
     //构造函数，先将数据库连接好
     public MySQLConnect()
     {
@@ -89,12 +134,12 @@ public class MySQLConnect {
         }
 
     }
-
+    //添加账单信息
     public void addBill(billinfo bi)
     {
         try {
-            PreparedStatement pps=cn.prepareStatement("insert into billinfo (id,time,type,money) values (?,?,?,?)");
-            pps.setInt(1,bi.id);
+            PreparedStatement pps=cn.prepareStatement("insert into billinfo (userid,time,type,money) values (?,?,?,?)");
+            pps.setInt(1,bi.userid);
             pps.setString(2,bi.time);
             pps.setString(3,bi.type);
             pps.setInt(4,bi.money);
@@ -109,24 +154,48 @@ public class MySQLConnect {
 
     }
 
-//              测试用例
-//    public static void main(String[] args)
-//    {
-//        MySQLConnect mySQLConnect=new MySQLConnect();
-//
-//        billinfo bi=new billinfo();
-//
-//        bi.id=10;
-//        bi.time="2020.7.5";
-//        bi.type="吃饭啊";
-//        bi.money=1000;
-//
-//        mySQLConnect.addBill(bi);
-//        mySQLConnect.regist(233,"247284");
-//        billinfo bill=mySQLConnect.SelectBill(1);
-//        System.out.println(bill.id+" "+bill.type+" "+bill.time+" "+bill.money);
-//        System.out.println(mySQLConnect.SelectUser(233));
-//    }
+    public void deleteBill(billinfo bill)
+    {
+        billinfo[] bi=SelectBill(bill.time, bill.userid);
+        try {
+            PreparedStatement pps=cn.prepareStatement("delete from billinfo where id=? and userid=? and time=? and type=? and money=?");
+            pps.setInt(1,bi[0].id);
+            pps.setInt(2,bi[0].userid);
+            pps.setString(3,bi[0].time);
+            pps.setString(4,bi[0].type);
+            pps.setInt(5,bi[0].money);
+            pps.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+
+              //测试用例
+    public static void main(String[] args)
+    {
+        MySQLConnect mySQLConnect=new MySQLConnect();
+
+        billinfo bi=new billinfo();
+
+        bi.userid=1;
+        bi.time="2020.7.7";
+        bi.type="吃饭";
+        bi.money=1000;
+
+        //mySQLConnect.addBill(bi);
+        //mySQLConnect.deleteBill(bi);
+        //mySQLConnect.regist(233,"247284");
+        //billinfo[] bill=mySQLConnect.SelectBill(1);
+        //for(int i=0;i<bill.length;i++)
+        //    System.out.println(bill[i].id+" "+bill[i].type+" "+bill[i].time+" "+bill[i].money);
+
+        //mySQLConnect.regist(1,"24728");
+        //System.out.println(mySQLConnect.User(1,"247284"));
+
+
+    }
 
 }
 
@@ -134,7 +203,17 @@ public class MySQLConnect {
 class billinfo
 {
     public int id;
+    public int userid;
     public String time;
     public String type;
     public int money;
+
+    public billinfo()
+    {
+        id=0;
+        userid=0;
+        time=null;
+        type=null;
+        money=0;
+    }
 }
