@@ -96,7 +96,7 @@ public class analysis {
                     }
                     else if(para.length==4)
                     {   //该id下某时间的所有账单
-                        bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]),para[3],para[4]);
+                        bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]),para[3]);
                     }
                     else if(para.length==5)
                     {
@@ -104,7 +104,7 @@ public class analysis {
                         bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]),para[3],para[4]);
                     }
                     else return x;
-                    x="1";
+                    x="1 ";
                     for(int i=0;i<bill.length;i++)
                     {
                         x+=bill[i].userid+" ";
