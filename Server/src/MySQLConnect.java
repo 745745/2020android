@@ -116,6 +116,8 @@ public class MySQLConnect {
             {
                 i++;
             }
+            if(i==0)
+                return bill;
             rs.beforeFirst();
             bill=new billinfo[i];
             int j=0;

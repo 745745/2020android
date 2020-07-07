@@ -84,8 +84,8 @@ public class analysis {
                 {
                     if(para.length<4)
                         return x;
-                    if (mySQLConnect.User(Integer.parseInt(para[2]), para[3])) ;
-                    x="1";
+                    if (mySQLConnect.User(Integer.parseInt(para[2]), para[3]))
+                        x="1";
                 }
                 else
                 {
@@ -93,15 +93,21 @@ public class analysis {
                     if(para.length==3)
                     {   //该id下的所有账单
                         bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]));
+                        if(bill==null)
+                            return x;
                     }
                     else if(para.length==4)
                     {   //该id下某时间的所有账单
                         bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]),para[3]);
+                        if(bill==null)
+                            return x;
                     }
                     else if(para.length==5)
                     {
                         //查找某时间段的账单
                         bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]),para[3],para[4]);
+                        if(bill==null)
+                            return x;
                     }
                     else return x;
                     x="1 ";

@@ -46,6 +46,12 @@ class serverSocket extends Thread
                     String x=dis.readUTF();
                     String a=analysis.getResult(x);
                     dos.writeUTF(a);
+                    int y=dis.read();
+                    if(y==-1)
+                    {
+                        socket.close();
+                        break;
+                    }
                 }
             }
             catch (IOException e) {
