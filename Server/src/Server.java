@@ -10,7 +10,6 @@ public class Server {
     {
         serverSocket serversocket=new serverSocket();
         serversocket.run();
-
     }
 
 

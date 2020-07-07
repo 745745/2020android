@@ -96,7 +96,7 @@ public class analysis {
                     }
                     else if(para.length==4)
                     {   //该id下某时间的所有账单
-                        bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]),para[3]);
+                        bill=mySQLConnect.SelectBill(Integer.parseInt(para[2]),para[3],para[4]);
                     }
                     else if(para.length==5)
                     {
