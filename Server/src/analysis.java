@@ -1,6 +1,7 @@
 public class analysis {
     public static String getResult(String request)
     {
+        boolean a=false;
         String x="0";
         String []para=request.split(" ");
         MySQLConnect mySQLConnect=new MySQLConnect();
@@ -13,7 +14,9 @@ public class analysis {
                 {
                     if(para.length<4)
                         return x;
-                    mySQLConnect.regist(Integer.parseInt(para[2]),para[3]);
+                    a=mySQLConnect.regist(Integer.parseInt(para[2]),para[3]);
+                    if(a==false)
+                        return x;
                 }
                 else
                 {
@@ -24,7 +27,9 @@ public class analysis {
                     bi.time=para[3];
                     bi.type=para[4];
                     bi.money=Integer.parseInt(para[5]);
-                    mySQLConnect.addBill(bi);
+                    a=mySQLConnect.addBill(bi);
+                    if(a==false)
+                        return x;
                 }
                 x="1";
                 break;
@@ -36,7 +41,9 @@ public class analysis {
                 {
                     if(para.length<4)
                         return x;
-                    mySQLConnect.deleteUser(Integer.parseInt(para[2]),para[3]);
+                    a=mySQLConnect.deleteUser(Integer.parseInt(para[2]),para[3]);
+                    if(a==false)
+                        return x;
                 }
                 else
                 {
@@ -47,7 +54,9 @@ public class analysis {
                     bi.time=para[3];
                     bi.type=para[4];
                     bi.money=Integer.parseInt(para[5]);
-                    mySQLConnect.deleteBill(bi);
+                    a=mySQLConnect.deleteBill(bi);
+                    if(a==false)
+                        return x;
                 }
                 x="1";
                 break;
@@ -59,7 +68,9 @@ public class analysis {
                 {
                     if(para.length<5)
                         return x;
-                    mySQLConnect.changePassword(Integer.parseInt(para[2]),para[3],para[4]);
+                    a=mySQLConnect.changePassword(Integer.parseInt(para[2]),para[3],para[4]);
+                    if(a==false)
+                        return x;
                 }
                 else
                 {
@@ -75,7 +86,9 @@ public class analysis {
                     bc.time=para[7];
                     bc.type=para[8];
                     bc.money=Integer.parseInt(para[9]);
-                    mySQLConnect.changeBill(bi,bc);
+                    a=mySQLConnect.changeBill(bi,bc);
+                    if(a==false)
+                        return x;
                 }
                 x="1";
                 break;
