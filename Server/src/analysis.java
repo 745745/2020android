@@ -20,12 +20,11 @@ public class analysis {
                     if(para.length<6)
                         return x;
                     billinfo bi=new billinfo();
-                    bi.id=Integer.parseInt(para[2]);
+                    bi.userid=Integer.parseInt(para[2]);
                     bi.time=para[3];
                     bi.type=para[4];
                     bi.money=Integer.parseInt(para[5]);
                     mySQLConnect.addBill(bi);
-
                 }
                 x="1";
                 break;
@@ -44,7 +43,7 @@ public class analysis {
                     if(para.length<6)
                         return x;
                     billinfo bi=new billinfo();
-                    bi.id=Integer.parseInt(para[2]);
+                    bi.userid=Integer.parseInt(para[2]);
                     bi.time=para[3];
                     bi.type=para[4];
                     bi.money=Integer.parseInt(para[5]);
@@ -64,14 +63,19 @@ public class analysis {
                 }
                 else
                 {
-                    if(para.length<6)
+                    if(para.length<10)
                         return x;
                     billinfo bi=new billinfo();
-                    bi.id=Integer.parseInt(para[2]);
+                    billinfo bc =new billinfo();
+                    bi.userid=Integer.parseInt(para[2]);
                     bi.time=para[3];
                     bi.type=para[4];
                     bi.money=Integer.parseInt(para[5]);
-                    mySQLConnect.changeBill(bi);
+                    bc.userid=Integer.parseInt(para[6]);
+                    bc.time=para[7];
+                    bc.type=para[8];
+                    bc.money=Integer.parseInt(para[9]);
+                    mySQLConnect.changeBill(bi,bc);
                 }
                 x="1";
                 break;

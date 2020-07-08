@@ -276,7 +276,7 @@ public class MySQLConnect {
     }
 
     //修改账单
-    public void changeBill(billinfo bi)
+    public void changeBill(billinfo bi,billinfo bc)
     {
         try {
             //先去找到相应的记录获取id
@@ -284,17 +284,16 @@ public class MySQLConnect {
 
             //修改
             PreparedStatement pps=cn.prepareStatement("update billinfo set userid=?,time=?,type=?,money=? where id=?");
-            pps.setInt(1,bi.userid);
-            pps.setString(2,bi.time);
-            pps.setString(3,bi.type);
-            pps.setInt(4,bi.money);
+            pps.setInt(1,bc.userid);
+            pps.setString(2,bc.time);
+            pps.setString(3,bc.type);
+            pps.setInt(4,bc.money);
             pps.setInt(5,bq.id);
             pps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
-
     //测试用例
 //    public static void main(String[] args)
 //    {
