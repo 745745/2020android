@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn_start = findViewById(R.id.btn_start);
-        //按键监听
+        //进入主页
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

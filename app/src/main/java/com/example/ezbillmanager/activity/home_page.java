@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezbillmanager.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class home_page extends AppCompatActivity {
@@ -24,7 +23,6 @@ public class home_page extends AppCompatActivity {
     private TextView tv_sentence;
 
     private RecyclerView mRecyclerView;
-    private List<CostBean> mList;
     private Time date;
     private Button btn_up;
     private Button btn_down;
@@ -32,8 +30,6 @@ public class home_page extends AppCompatActivity {
     private int month;
     private TextView expnum;
     private TextView incomum;
-    private int exp_num_month;
-    private int income_num_month;
 
 
     @Override
@@ -54,21 +50,12 @@ public class home_page extends AppCompatActivity {
         expnum=findViewById(R.id.tv_expendnum);
         incomum=findViewById(R.id.tv_incomenum);
 
-        //获取当前月份
-        date = new Time();
-        date.setToNow();
-        month=date.month;
-        month++;
-        tv_month.setText(String.valueOf(month)+"月");
-
-        //按键监听
-        //跳转至记账页面，变换按钮颜色
+        //加号键：跳转至记账页面
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home_page.this, Account.class);
-                intent.putExtra("Account",0);
-                startActivityForResult(intent,1);
+                startActivity(intent);
             }
         });
 
@@ -83,10 +70,17 @@ public class home_page extends AppCompatActivity {
             }
         });
 
+        //获取当前月份
+        date = new Time();
+        date.setToNow();
+        month=date.month;
+        tv_month.setText(String.valueOf(month)+"月");
+
         //左键由本月->本周->本日
         btn_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //显示账单
             }
         });
 
@@ -94,10 +88,9 @@ public class home_page extends AppCompatActivity {
         btn_down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //显示账单
             }
         });
-
-
 
     }
 }
