@@ -20,8 +20,6 @@ import android.view.animation.AnimationUtils;
 
 import com.example.ezbillmanager.R;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class label extends AppCompatActivity {
     private Button btn_c_return;
@@ -51,7 +49,6 @@ public class label extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_label);
 
-
         btn_c_return = findViewById(R.id.btn_c_return);
         btn_redo = findViewById(R.id.btn_redo);
         btn_edit = findViewById(R.id.btn_edit);
@@ -64,7 +61,6 @@ public class label extends AppCompatActivity {
         et_classify = findViewById(R.id.et_classify);
 
         mRecyclerView = findViewById(R.id.id_recylerView);
-
         recylerView_long_checkbox = findViewById(R.id.recylerView_long_checkbox);
 
         //<键：返回记账页

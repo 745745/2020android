@@ -173,7 +173,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="100dp"
                 android:layout_toRightOf="@id/btn_add"
                 android:background="@drawable/piechart" />
 
@@ -182,7 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn_piechart"
-                android:layout_marginLeft="84dp"
+                android:layout_marginLeft="104dp"
                 android:layout_toRightOf="@id/btn_add"
                 android:text="图表"
                 android:textSize="15dp" />

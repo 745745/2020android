@@ -48,6 +48,7 @@ public class Account extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Account.this, label.class);
                 startActivity(intent);
+                //无法跳转，出了问题
             }
         });
 
