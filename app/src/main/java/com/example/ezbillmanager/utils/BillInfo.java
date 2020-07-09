@@ -1,3 +1,5 @@
+package com.example.ezbillmanager.utils;
+
 public class BillInfo
 {
     private int _usrID;

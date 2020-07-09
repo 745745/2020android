@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.ezbillmanager.utils.* ;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,11 +28,11 @@ public class Chart extends AppCompatActivity {
     private TextView expnum;
     private TextView incomum;
     private android.text.format.Time date;
-
+    private NetManager netManager;
 
     private TextView tv_cost;
 
-    int mark=-1,month;//mark=1代表查询收入，-1代表查询支出
+    int mark=-1,year,month,day;//mark=1代表查询收入，-1代表查询支出
 
     private PieChart_View pieView;//饼图
 
@@ -92,11 +93,21 @@ public class Chart extends AppCompatActivity {
             }
         });
 
+        //图标按键:请求数据并显示图标
+        btn_piechart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+
         //左键：由本月->本周->本日
         btn_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //显示饼状图
+
             }
         });
 
@@ -105,14 +116,21 @@ public class Chart extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //显示饼状图
+                String startTime=year+"."+month+"."+"1";
+                String endTime=year+"."+month+"."+"31";
+                userInfo userinfo=userInfo.getInstance();
+                BillInfo[] billInfo=netManager.findBillByTimeval(userinfo.userid,startTime,endTime);
+
             }
         });
 
         //获取当前时间
         date = new Time();
         date.setToNow();
+        year=date.year;
         month=date.month;
-
+        day=date.monthDay;
+        netManager=NetManager.getInstance();
         //chart页面选取的饼状图实现具体实现参考：https://github.com/ithedan/HeDan_Piechart/blob/master/README.md
 
     }

@@ -185,7 +185,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
-                            android:text="花费一"
+                            android:hint="花费一"
                             android:gravity="center"/>
                     </RelativeLayout>
                     <RelativeLayout
@@ -208,7 +208,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
-                            android:text="花费二"
+                            android:hint="花费二"
                             android:gravity="center"/>
                     </RelativeLayout>
                     <RelativeLayout
@@ -231,7 +231,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
-                            android:text="花费三"
+                            android:hint="花费三"
                             android:gravity="center"/>
                     </RelativeLayout>
                     <RelativeLayout
@@ -256,7 +256,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/expcolor_4"
                             android:gravity="center"
-                            android:text="花费四" />
+                            android:hint="花费四" />
                     </RelativeLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -283,7 +283,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
-                            android:text="花费五"
+                            android:hint="花费五"
                             android:gravity="center"/>
                     </RelativeLayout>
                     <RelativeLayout
@@ -306,7 +306,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
-                            android:text="花费六"
+                            android:hint="花费六"
                             android:gravity="center"/>
                     </RelativeLayout>
                     <RelativeLayout
@@ -329,7 +329,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
-                            android:text="花费七"
+                            android:hint="花费七"
                             android:gravity="center"/>
                     </RelativeLayout>
                     <RelativeLayout
@@ -353,7 +353,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
-                            android:text="花费八"
+                            android:hint="花费八"
                             android:gravity="center" />
                     </RelativeLayout>
                 </LinearLayout>

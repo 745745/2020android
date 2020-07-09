@@ -140,6 +140,7 @@ public class MySQLConnect {
         return bill;
     }
 
+    //按时间段查找账单
     public billinfo[] SelectBill(int userid,String startTime,String endTime)
     {
         billinfo[] bill=null;
