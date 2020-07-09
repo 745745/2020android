@@ -1,6 +1,6 @@
 package com.example.ezbillmanager.utils;
 
-public class BillInfo
+public class BillInfo implements Comparable<BillInfo>
 {
     private int _usrID;
     private String _time;
@@ -53,5 +53,10 @@ public class BillInfo
 
     public void set_usrID(int _usrID) {
         this._usrID = _usrID;
+    }
+
+    public int compareTo(BillInfo o)
+    {
+        return _type.compareTo(o._type);
     }
 }

@@ -36,6 +36,10 @@ public class NetManager
         try
         {
             Socket client = new Socket(_serverName,_port);
+            while(!client.isConnected())
+            {
+
+            }
             OutputStream outputStream = client.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeUTF(param);
@@ -325,10 +329,9 @@ public class NetManager
     public BillInfo[] findBillByTimeval(int usrID, String startTime, String endTime)
     {
         String param = "4 2 "+usrID+" "+startTime+" "+endTime;
+
         String result = _sendSocket(param);
         String[] strArr = result.split(" ");
-        System.out.println(result);
-        System.out.println(strArr.length);
         if((strArr.length-1)%4!=0)
         {
             //log出错
@@ -337,7 +340,6 @@ public class NetManager
         else
         {
             int length = (strArr.length-1)/4;
-            System.out.println(strArr[1]);
             BillInfo[] billArr = new BillInfo[length];
             for(int i=0;i<length;++i)
             {

@@ -37,7 +37,7 @@
                 android:id="@+id/btn_down"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="190dp"
+                android:layout_marginLeft="152dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@id/tv_month"
                 android:background="@drawable/down" />
@@ -93,7 +93,7 @@
             android:layout_below="@id/chart__R_2">
             <Button
                 android:id="@+id/btn_account_expend"
-                android:layout_width="240dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:text="支出"
                 android:textSize="21sp"
@@ -116,248 +116,27 @@
         <RelativeLayout
             android:id="@+id/chart_R_4"
             android:layout_width="match_parent"
-            android:layout_height="430dp"
+            android:layout_height="500dp"
             android:layout_below="@id/chart_R_3"
             android:background="@drawable/frame">
 
             <RelativeLayout
                 android:id="@+id/layout_three"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="500dp">
+                <com.github.mikephil.charting.charts.PieChart
 
-                <com.hedan.piechart_library.PieChart_View
-                    android:id="@+id/pie_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:padding="10dp"
-                    app:isAnimation="true"
-                    app:isTouchFlag="true"
-                    app:animaDuration="1000"
-                    app:mRadius="100dp"
-                    app:nameColor="#f00"
-                    app:name=" "
-                    app:nameSize="16sp"
-                    app:nameOrientation="horizontal"
-                    app:pieChartWidth="35dp"
-                    app:alphaWidth="10dp"
-                    app:alphaPieColor="#fff"
-                    app:alphaPieTran="100"
-                    app:segmentAngle="0.5"
-                    app:startAngle="180"
-                    app:textColor="#000"
-                    app:textSize="12sp"
-                    app:textOrientation="path"
-                    app:inCricleColor="#eeeeee"
+                    android:id="@+id/pirChart"
+                    android:layout_height="300dp"
+                    android:layout_width="300dp"
+                    android:layout_centerInParent="true"
+
+
                     />
+
             </RelativeLayout>
 
 
-            <LinearLayout
-                android:id="@+id/laout_four"
-                android:layout_below="@id/layout_three"
-                android:layout_width="match_parent"
-                android:layout_margin="10dp"
-                android:layout_height="100dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center">
-                    <RelativeLayout
-                        android:id="@+id/expenditure_1"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_1"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-                        <TextView
-                            android:id="@+id/expname_1"
-                            android:layout_toRightOf="@id/expcolor_1"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:hint="花费一"
-                            android:gravity="center"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/expenditure_2"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_2"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-                        <TextView
-                            android:id="@+id/expname_2"
-                            android:layout_toRightOf="@id/expcolor_2"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:hint="花费二"
-                            android:gravity="center"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/expenditure_3"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_3"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-                        <TextView
-                            android:id="@+id/expname_3"
-                            android:layout_toRightOf="@id/expcolor_3"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:hint="花费三"
-                            android:gravity="center"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/expenditure_4"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_4"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-
-                        <TextView
-                            android:id="@+id/expname_4"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/expcolor_4"
-                            android:gravity="center"
-                            android:hint="花费四" />
-                    </RelativeLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center">
-                    <RelativeLayout
-                        android:id="@+id/expenditure_5"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_5"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-                        <TextView
-                            android:id="@+id/expname_5"
-                            android:layout_toRightOf="@id/expcolor_5"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:hint="花费五"
-                            android:gravity="center"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/expenditure_6"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_6"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-                        <TextView
-                            android:id="@+id/expname_6"
-                            android:layout_toRightOf="@id/expcolor_6"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:hint="花费六"
-                            android:gravity="center"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/expenditure_7"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_7"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-                        <TextView
-                            android:id="@+id/expname_7"
-                            android:layout_toRightOf="@id/expcolor_7"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:hint="花费七"
-                            android:gravity="center"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/expenditure_8"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        >
-                        <TextView
-                            android:id="@+id/expcolor_8"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="#0baf97"
-                            android:layout_centerVertical="true"
-                            />
-
-                        <TextView
-                            android:id="@+id/expname_8"
-                            android:layout_toRightOf="@id/expcolor_8"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:hint="花费八"
-                            android:gravity="center" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
             <!--<android.support.v7.widget.RecyclerView-->
             <!--android:id="@+id/id_recylerView"-->
             <!--android:layout_width="match_parent"-->
