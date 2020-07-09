@@ -18,7 +18,8 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/up"/>
+                android:background="@drawable/up"
+                />
             <TextView
                 android:id="@+id/account_tv_1"
                 android:layout_width="wrap_content"
@@ -28,6 +29,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="#ffffff"/>
         </RelativeLayout>
+
         <RelativeLayout
             android:background="@drawable/frame"
             android:id="@+id/account_R_3"
@@ -55,6 +57,7 @@
                 android:layout_marginLeft="240dp"/>
 
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/account_R_4"
             android:layout_below="@id/account_R_3"
@@ -73,7 +76,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
                     android:textColor="#333333"/>
-                <TextView
+                <!--<TextView
                     android:id="@+id/tv_y"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -97,10 +100,11 @@
                     android:layout_centerVertical="true"
                     android:textSize="26dp"
                     android:textStyle="bold"
-                    android:background="@null"/>
+                    android:background="@null"/>-->
 
 
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/account_R_6"
                 android:layout_below="@id/account_R_5"
@@ -115,20 +119,33 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
                     android:textColor="#333333"/>
+
                 <Button
-                    android:id="@+id/btn_classify"
+                    android:id="@+id/textview_classify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
                     android:layout_alignParentRight="true"
-                    android:text="FOOD"
+                    android:text="未选择"
                     android:textColor="#808080"
                     android:gravity="right|center"
                     android:layout_centerVertical="true"
                     android:textSize="18dp"
                     android:background="@null"/>
+                <!--<Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_class"
+                    android:layout_marginRight="30dp"
+                    android:text="选择分类"
+                    android:textColor="#333333"
+                    android:layout_centerVertical="true"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:background="@null"/>-->
 
             </RelativeLayout>
+
             <ImageView
                 android:id="@+id/img_account_write"
                 android:layout_width="200dp"
