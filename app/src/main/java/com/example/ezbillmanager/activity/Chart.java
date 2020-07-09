@@ -39,8 +39,8 @@ public class Chart extends AppCompatActivity {
     private Button btn_down;
     private Button btn_up;
     private TextView textView_month;
-    private TextView expnum;
-    private TextView incomum;
+    private TextView expendnum;
+    private TextView incomenum;
     private android.text.format.Time date;
     private NetManager netManager;
     private BillInfo[] bill=null;
@@ -119,9 +119,9 @@ public class Chart extends AppCompatActivity {
                 switch (dateMark)
                 {
                     case(0)://当天
-                        startTime=year+"."+month+"."+day;
-                        endTime=year+"."+month+"."+day;
-                        break;
+                    startTime=year+"."+month+"."+day;
+                    endTime=year+"."+month+"."+day;
+                    break;
                     case (1)://当周
                         int h=weekDay(year,month+1,day);
                         int day1=day-(h-1);
@@ -150,7 +150,7 @@ public class Chart extends AppCompatActivity {
                         break;
                 }
 
-                userInfo userinfo=userInfo.getInstance();
+                final userInfo userinfo=userInfo.getInstance();
                 //BillInfo[] billInfo=netManager.findBillByTimeval(userinfo.userid,startTime,endTime);
                 //先用1代替
 
@@ -161,7 +161,7 @@ public class Chart extends AppCompatActivity {
 
                     public void run() {
                         super.run();
-                        bill=netManager.findBillByTimeval(1,startTime1,endTime1);
+                        bill=netManager.findBillByTimeval(userinfo.userid,startTime1,endTime1);
                     }
                 }
                 Mythread mythread=new Mythread();
@@ -175,6 +175,12 @@ public class Chart extends AppCompatActivity {
                 if(bill.length==0)
                     return;
                 //找出是支出的账单
+                BillInfo[] billExpand=chooseBill.chooseExpand(bill);
+                BillInfo[] billIncome=chooseBill.chooseIncome(bill);
+                int income=chooseBill.sumBill(billIncome);
+                int expand=chooseBill.sumBill(billExpand);
+                expendnum.setText(String.valueOf(expand));
+                incomenum.setText(String.valueOf(income));
                 if(mark==-1)
                 {
                     bill = chooseBill.chooseExpand(bill);
@@ -324,6 +330,9 @@ public class Chart extends AppCompatActivity {
     //初始化
     void init()
     {
+
+        expendnum=findViewById(R.id.tv_expendnum);
+        incomenum=findViewById(R.id.tv_incomenum);
         btn_add = findViewById(R.id.btn_add);
         btn_piechart = findViewById(R.id.btn_piechart);
         btn_payment = findViewById(R.id.btn_payment);
@@ -333,8 +342,6 @@ public class Chart extends AppCompatActivity {
         btn_down=findViewById(R.id.btn_up);
         btn_up=findViewById(R.id.btn_down);
         textView_month=findViewById(R.id.tv_month);
-        expnum=findViewById(R.id.tv_expendnum);
-        incomum=findViewById(R.id.tv_incomenum);
         relativeLayout=(RelativeLayout)findViewById(R.id.layout_three);
         pieChart=findViewById(R.id.pirChart);
     }
@@ -367,28 +374,33 @@ class chooseBill
         return billInfos;
     }
 
-    public static BillInfo[] chooseIncome(BillInfo[] bill)
-    {
-        ArrayList<Integer>x=new ArrayList<Integer>();
-        for(int i=0;i<bill.length;i++)
-        {
-            if(bill[i].getMoney()<0)
-            {
+    public static BillInfo[] chooseIncome(BillInfo[] bill) {
+        ArrayList<Integer> x = new ArrayList<Integer>();
+        for (int i = 0; i < bill.length; i++) {
+            if (bill[i].getMoney() < 0) {
                 x.add(i);
             }
         }
-        BillInfo[] billInfos=new BillInfo[x.size()];
-        for(int i=0;i<x.size();i++)
-        {
-            billInfos[i]=new BillInfo();
-            int p=x.get(i);
+        BillInfo[] billInfos = new BillInfo[x.size()];
+        for (int i = 0; i < x.size(); i++) {
+            billInfos[i] = new BillInfo();
+            int p = x.get(i);
             billInfos[i].set_usrID(bill[p].getUsrID());
             billInfos[i].setTime(bill[p].getTime());
             billInfos[i].setType(bill[p].getType());
-            billInfos[i].setMoney(-1*bill[p].getMoney());
+            billInfos[i].setMoney(-1 * bill[p].getMoney());
         }
         Arrays.sort(billInfos);
         return billInfos;
+    }
+    public static int sumBill(BillInfo[] bill)
+    {
+        int sum=0;
+        for(int i=0;i<bill.length;i++)
+        {
+            sum+=bill[i].getMoney();
+        }
+        return sum;
     }
 
 }

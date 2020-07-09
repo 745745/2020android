@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/ensure1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"
+        android:text="登录"
+        />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        >
+        <EditText
+            android:id="@+id/user1"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:hint="账号"
+            />
+
+        <EditText
+            android:id="@+id/password1"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:hint="密码"
+            />
+
+
+
+    </LinearLayout>
+</RelativeLayout>

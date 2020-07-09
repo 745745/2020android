@@ -26,6 +26,14 @@ public class userInfo
         if(instance==null)
             instance=new userInfo();
         return instance;
+    }
 
+    public  boolean isNew()
+    {
+        if(userid==0&&password==null)
+        {
+            return true;
+        }
+        else return false;
     }
 }
