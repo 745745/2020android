@@ -35,7 +35,7 @@ public class query extends AppCompatActivity {
         btn_1 = findViewById(R.id.query_btn1);
         btn_2 = findViewById(R.id.query_btn2);
 
-
+        //判断输入的信息，启动和传入结果页面
         btn_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +53,7 @@ public class query extends AppCompatActivity {
                 }
             }
         });
+        //设置返回
         btn_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
