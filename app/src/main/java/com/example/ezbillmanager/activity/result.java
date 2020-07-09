@@ -23,7 +23,7 @@ public class result extends AppCompatActivity {
         date1.findViewById(R.id.result_date1);
         date2.findViewById(R.id.result_date2);
         btn=findViewById(R.id.result_btn_return);
-        //获取从query获取的日期
+        //获取从query获取的日期，格式为：年.月.日
         String Date1 =(String)getIntent().getCharSequenceExtra("startdate");
         String Date2 =(String)getIntent().getCharSequenceExtra("enddate");
         //设置日期文本显示
