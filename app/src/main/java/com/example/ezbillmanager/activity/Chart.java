@@ -67,6 +67,7 @@ public class Chart extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Chart.this, Account.class);
                 startActivity(intent);
+                Chart.this.finish();
             }
         });
 
@@ -119,8 +120,8 @@ public class Chart extends AppCompatActivity {
                 switch (dateMark)
                 {
                     case(0)://当天
-                    startTime=year+"."+month+"."+day;
-                    endTime=year+"."+month+"."+day;
+                    startTime=year+"."+(month+1)+"."+day;
+                    endTime=year+"."+(month+1)+"."+day;
                     break;
                     case (1)://当周
                         int h=weekDay(year,month+1,day);

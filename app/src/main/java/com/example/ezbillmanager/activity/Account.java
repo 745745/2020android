@@ -55,6 +55,7 @@ public class Account extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Account.this, home_page.class);
                 startActivity(intent);
+                Account.this.finish();
             }
         });
 

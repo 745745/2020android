@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                     builder.setMessage("请先登录后使用");
                     builder.setPositiveButton("确定",null);
                     builder.show();
-
                 }
             }
         });

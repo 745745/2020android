@@ -3,7 +3,7 @@ package com.example.ezbillmanager.utils;
 public class BillInfo implements Comparable<BillInfo>
 {
     private int _usrID;
-    private String _time;
+    public String _time;
     private String _type;
     private int _money;
     
