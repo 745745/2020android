@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.format.Time;
-import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,13 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ezbillmanager.R;
 import com.example.ezbillmanager.utils.BillInfo;
 import com.example.ezbillmanager.utils.userInfo;
-import java.net.*;
-import java.io.*;
 import com.example.ezbillmanager.utils.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class home_page extends AppCompatActivity {
 
@@ -122,9 +119,9 @@ public class home_page extends AppCompatActivity {
                     if (bill == null) break;
                     else {
                         if (bill[i].getMoney() > 0)
-                            put.add("时间：" + bill[i].getTime() + " " + "金额：" + bill[i].getMoney() + " " + "花费类型：" + bill[i].getType() + "\n");
+                            put.add("时间：" + bill[i].getTime() + " " + "金额：" + bill[i].getMoney() + " " + "花费类型：" + bill[i].getType()  );
                         else
-                            put.add("时间：" + bill[i].getTime() + " " + "金额：" + -1 * bill[i].getMoney() + " " + "收入类型：" + bill[i].getType() + "\n");
+                            put.add("时间：" + bill[i].getTime() + " " + "金额：" + -1 * bill[i].getMoney() + " " + "收入类型：" + bill[i].getType() );
                         success = true;
                     }
 
@@ -141,12 +138,29 @@ public class home_page extends AppCompatActivity {
         }
         if (success) {
             for (int i = 0; i < put.size(); i++) {
-                TextView textView = new TextView(this);
+                final TextView textView = new TextView(this);
                 textView.setText(put.get(i));
                 if (bill[i].getMoney() > 0)
                     textView.setTextColor(Color.parseColor("#FF0000"));
                 else
                     textView.setTextColor(Color.parseColor("#008000"));
+
+
+                textView.setClickable(true);
+
+                textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(home_page.this, modifyBill.class);
+                        Bundle data1=new Bundle();
+                        String key=textView.getText().toString();
+                        data1.putString("data",key);
+                        intent.putExtras(data1);
+                        startActivity(intent);
+                        home_page.this.finish();
+                    }
+                });
+
                 tx.add(textView);
                 putbill.addView(textView);
             }
@@ -252,9 +266,9 @@ public class home_page extends AppCompatActivity {
                             if (bill == null) break;
                             else {
                                 if (bill[i].getMoney() > 0)
-                                    put.add("时间：" + bill[i].getTime() + " " + "金额：" + bill[i].getMoney() + " " + "花费类型：" + bill[i].getType() + "\n");
+                                    put.add("时间:" + bill[i].getTime() + " " + "金额：" + bill[i].getMoney() + " " + "花费类型：" + bill[i].getType() );
                                 else
-                                    put.add("时间：" + bill[i].getTime() + " " + "金额：" + -1 * bill[i].getMoney() + " " + "收入类型：" + bill[i].getType() + "\n");
+                                    put.add("时间：" + bill[i].getTime() + " " + "金额：" + -1 * bill[i].getMoney() + " " + "收入类型：" + bill[i].getType() );
                                 success = true;
                             }
 
@@ -271,12 +285,27 @@ public class home_page extends AppCompatActivity {
                 }
                 if (success) {
                     for (int i = 0; i < put.size(); i++) {
-                        TextView textView = new TextView(home_page.this);
+                        final TextView textView = new TextView(home_page.this);
                         textView.setText(put.get(i));
                         if (bill[i].getMoney() > 0)
                             textView.setTextColor(Color.parseColor("#FF0000"));
                         else
                             textView.setTextColor(Color.parseColor("#008000"));
+
+
+                        textView.setClickable(true);
+                        textView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent=new Intent(home_page.this, com.example.ezbillmanager.activity.modifyBill.class);
+                                Bundle data1=new Bundle();
+                                String key=textView.getText().toString();
+                                data1.putString("data",key);
+                                intent.putExtras(data1);
+                                startActivity(intent);
+                                home_page.this.finish();
+                            }
+                        });
                         tx.add(textView);
                         putbill.addView(textView);
                     }
@@ -380,9 +409,9 @@ public class home_page extends AppCompatActivity {
                             if (bill == null) break;
                             else {
                                 if (bill[i].getMoney() > 0)
-                                    put.add("时间：" + bill[i].getTime() + " " + "金额：" + bill[i].getMoney() + " " + "花费类型：" + bill[i].getType() + "\n");
+                                    put.add("时间：" + bill[i].getTime() + " " + "金额：" + bill[i].getMoney() + " " + "花费类型：" + bill[i].getType() );
                                 else
-                                    put.add("时间：" + bill[i].getTime() + " " + "金额：" + -1 * bill[i].getMoney() + " " + "收入类型：" + bill[i].getType() + "\n");
+                                    put.add("时间：" + bill[i].getTime() + " " + "金额：" + -1 * bill[i].getMoney() + " " + "收入类型：" + bill[i].getType() );
                                 success = true;
                             }
 
@@ -399,13 +428,24 @@ public class home_page extends AppCompatActivity {
                 }
                 if (success) {
                     for (int i = 0; i < put.size(); i++) {
-                        TextView textView = new TextView(home_page.this);
+                        final TextView textView = new TextView(home_page.this);
                         textView.setText(put.get(i));
                         if (bill[i].getMoney() > 0)
                             textView.setTextColor(Color.parseColor("#FF0000"));
                         else
                             textView.setTextColor(Color.parseColor("#008000"));
 
+                        textView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent=new Intent(home_page.this, modifyBill.class);
+                                intent.putExtra("data",textView.getText().toString());
+                                startActivity(intent);
+                                home_page.this.finish();
+                            }
+                        });
+
+                        textView.setClickable(true);
                         tx.add(textView);
                         putbill.addView(textView);
 

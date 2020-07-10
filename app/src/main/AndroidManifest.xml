@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.modifyBill"></activity>
         <activity android:name=".activity.result" />
         <activity android:name=".activity.query" />
         <activity android:name=".activity.Chart" />
-        <activity android:name=".activity.label" />
         <activity android:name=".activity.Account" />
         <activity android:name=".activity.home_page" />
         <activity android:name=".activity.MainActivity">
@@ -24,8 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.ezbillmanager.activity.Login">
-        </activity>
+        <activity android:name=".activity.Login" />
     </application>
+
 </manifest>
