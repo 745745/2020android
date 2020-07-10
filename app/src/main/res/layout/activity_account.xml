@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
                     android:layout_alignParentRight="true"
-                    android:maxLength="5"
+                    android:maxLength="10"
                     android:textColor="#808080"
                     android:textStyle="bold"
                     android:gravity="right|center"
