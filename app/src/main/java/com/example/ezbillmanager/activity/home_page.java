@@ -47,8 +47,8 @@ public class home_page extends AppCompatActivity {
     private int income = 0;
     private int outcome = 0;
     private BillInfo[] bill;
-    private int dateMark=2;//0当天,1当周，2当月，3当季度，4当年
-    private String[] text={"今天","本周","本月","本季度","本年度"};
+    private int dateMark=2;//0当天,1当周，2当月，3当季度，4当年，5全部
+    private String[] text={"今天","本周","本月","本季度","本年度","全部"};
     private ArrayList<TextView> tx=new ArrayList<TextView>();
     String startTime="";
     String endTime="";
@@ -229,6 +229,9 @@ public class home_page extends AppCompatActivity {
                         startTime=year+"."+0+"."+0;
                         endTime=year+"."+9+"."+9;
                         break;
+                    case(5):
+                        startTime="0000.00.00";
+                        endTime="9999.99.99";
                 }
 
                 tv_month.setText(text[dateMark]);
@@ -287,7 +290,7 @@ public class home_page extends AppCompatActivity {
                 }
         }});
 
-        //右键本月->本季度->本年
+        //右键本月->本季度->本年->全部
         btn_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -300,14 +303,13 @@ public class home_page extends AppCompatActivity {
                 }
                 tx.clear();
 
-                if(dateMark<4)
+                if(dateMark<5)
                 {
                     dateMark++;
                     btn_down.setVisibility(View.VISIBLE);
                 }
                 else
                 {
-
                     btn_up.setVisibility(View.INVISIBLE);
                 }
                 date = new Time();
@@ -355,6 +357,9 @@ public class home_page extends AppCompatActivity {
                         startTime=year+"."+0+"."+0;
                         endTime=year+"."+9+"."+9;
                         break;
+                    case(5):
+                        startTime="0000.00.00";
+                        endTime="9999.99.99";
                 }
 
                 tv_month.setText(text[dateMark]);

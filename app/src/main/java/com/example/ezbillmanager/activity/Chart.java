@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezbillmanager.R;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -52,7 +53,7 @@ public class Chart extends AppCompatActivity {
     int mark=-1,year,month,day;//mark=1代表查询收入，-1代表查询支出
 
     int dateMark=2;//0当天,1当周，2当月，3当季度，4当年
-    String[] text={"今天","本周","本月","本季度","本年度"};
+    String[] text={"今天","本周","本月","本季度","本年度","全部"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +150,9 @@ public class Chart extends AppCompatActivity {
                         startTime=year+"."+0+"."+0;
                         endTime=year+"."+9+"."+9;
                         break;
+                    case(5):
+                        startTime="0000.00.00";
+                        endTime="9999.99.99";
                 }
 
                 final userInfo userinfo=userInfo.getInstance();
@@ -235,7 +239,10 @@ public class Chart extends AppCompatActivity {
                 pieChart.setDrawEntryLabels(true);
                 pieChart.setEntryLabelColor(Color.parseColor("#FFFFFF"));
                 pieChart.setHighlightPerTapEnabled(true);
-
+                pieChart.setUsePercentValues(true);
+                Description description=new Description();
+                description.setText("消费/收入统计,以百分比统计");
+                pieChart.setDescription(description);
                 pieChart.setData(pieData);
                 pieChart.postInvalidate();
             }
@@ -263,12 +270,12 @@ public class Chart extends AppCompatActivity {
             public void onClick(View v) {
                 //显示饼状图
 
-                if(dateMark<4)
+                if(dateMark<5)
                 {
                     dateMark++;
                     btn_down.setVisibility(View.VISIBLE);
                 }
-                if(dateMark==4)
+                else
                     btn_up.setVisibility(View.INVISIBLE);
                 textView_month.setText(text[dateMark]);
             }
