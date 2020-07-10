@@ -8,20 +8,17 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezbillmanager.R;
 
 public class Account extends AppCompatActivity {
     private Button btn_return;
+    private Button btn_classify;
     private Button btn_save;
     private Button btn_account_expend;
     private Button btn_account_income;
     private EditText et_money;
-    private TextView textview_classify;
-    private Button btn_class;
     private boolean inorout = true;//true为支出栏，false为收入栏
 
     @Override
@@ -29,15 +26,12 @@ public class Account extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
         btn_return = findViewById(R.id.btn_return);
-        btn_class = findViewById(R.id.textview_classify);
-        //textview_classify=findViewById(R.id.textview_classify);
-        //btn_save = findViewById(R.id.btn_save);
-        //et_money = findViewById(R.id.et_money);
+        btn_classify = findViewById(R.id.btn_classify);
+        btn_save = findViewById(R.id.btn_save);
+        et_money = findViewById(R.id.et_money);
         btn_account_expend = findViewById(R.id.btn_account_expend);
         btn_account_income = findViewById(R.id.btn_account_income);
-
 
         //返回键：返回主页
         btn_return.setOnClickListener(new OnClickListener() {
@@ -49,17 +43,12 @@ public class Account extends AppCompatActivity {
         });
 
         //分类栏进入项目分类页面label
-        btn_class.setOnClickListener(new OnClickListener() {
+        btn_classify.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Account.this, newlabel.class);
+                Intent intent = new Intent(Account.this, label.class);
                 startActivity(intent);
-                /*Intent intent1 = getIntent();
-                String string = (String) intent1.getSerializableExtra("int");
-                if(string=="1")
-                    textview_classify.setText("衣");*/
-
-
+                //无法跳转，出了问题
             }
         });
 
@@ -84,11 +73,12 @@ public class Account extends AppCompatActivity {
         });
 
         //保存键：数据存储；并返回主页home_page
-        /*btn_save.setOnClickListener(new View.OnClickListener(){
+        btn_save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
+
             }
-        });*/
+        });
     }
 }

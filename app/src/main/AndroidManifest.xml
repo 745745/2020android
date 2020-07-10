@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ezbillmanager">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,23 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Chart"></activity>
-        <activity android:name="com.example.ezbillmanager.activity.label" />
-        <activity android:name="com.example.ezbillmanager.activity.Account"
-            android:exported="true"/>
-        <activity android:name="com.example.ezbillmanager.activity.home_page"
-            android:exported="true"/>
-        <activity android:name="com.example.ezbillmanager.activity.newlabel"
-            android:exported="true"/>
-        <activity android:name="com.example.ezbillmanager.activity.Accountnext1"
-            android:exported="true"/>
-        <activity android:name="com.example.ezbillmanager.activity.Accountnext4"
-            android:exported="true"/>
-        <activity android:name="com.example.ezbillmanager.activity.Accountnext2"
-            android:exported="true"/>
-        <activity android:name="com.example.ezbillmanager.activity.Accountnext3"
-            android:exported="true"/>
-
+        <activity android:name=".activity.result" />
+        <activity android:name=".activity.query" />
+        <activity android:name=".activity.Chart" />
+        <activity android:name=".activity.label" />
+        <activity android:name=".activity.Account" />
+        <activity android:name=".activity.home_page" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.ezbillmanager.activity.Login">
+        </activity>
     </application>
-
 </manifest>
