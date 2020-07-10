@@ -121,14 +121,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
                     android:layout_alignParentRight="true"
-                    android:text="请输入"
                     android:maxLength="5"
                     android:textColor="#808080"
                     android:textStyle="bold"
                     android:gravity="right|center"
                     android:layout_centerVertical="true"
                     android:textSize="18dp"
-                    android:hint="0.00"
+                    android:hint="吃饭"
                     android:singleLine="true"
                     android:background="@null"/>
 
