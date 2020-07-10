@@ -3,9 +3,11 @@ package com.example.ezbillmanager.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.example.ezbillmanager.utils.*;
 import com.example.ezbillmanager.R;
@@ -27,7 +29,6 @@ public class Login extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 final int userid=Integer.parseInt(tv_userid.getText().toString());
                 final String password=tv_password.getText().toString();
 
@@ -43,6 +44,11 @@ public class Login extends AppCompatActivity {
                             userInfo userinfo=userInfo.getInstance();
                             userinfo.setId(userid);
                             userinfo.setPassword(password);
+                        }
+                        else
+                        {
+                            int x=netManager.usrRegister(userid,password);
+                            success=(x==1);
                         }
                     }
                 }
@@ -68,6 +74,21 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
+        tv_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tv_password.setFocusable(true);
+                tv_password.setFocusableInTouchMode(true);
+                tv_password.requestFocus();
+                tv_password.requestFocusFromTouch();
+                RelativeLayout relativeLayout=findViewById(R.id.login_layout);
+                relativeLayout.setBackgroundResource(R.drawable.login);
+            }
+        });
+
+
+
     }
 
 
@@ -77,5 +98,7 @@ public class Login extends AppCompatActivity {
         btn=findViewById(R.id.ensure1);
         tv_userid=findViewById(R.id.user1);
         tv_password=findViewById(R.id.password1);
+        tv_userid.setBackgroundColor(Color.WHITE);
+        tv_password.setBackgroundColor(Color.WHITE);
     }
 }

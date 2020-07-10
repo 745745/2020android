@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 if(!userInfo.getInstance().isNew())
                 {
                     startActivity(intent);
+                    MainActivity.this.finish();
                 }
                 else
                 {

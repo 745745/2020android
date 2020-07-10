@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/defaultlogin">
 
     <Button
         android:id="@+id/ensure1"
@@ -10,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
         android:layout_centerHorizontal="true"
-        android:text="登录"
+        android:text="登录/注册"
         />
 
     <LinearLayout
@@ -29,6 +31,8 @@
             />
 
         <EditText
+            android:clickable="true"
+            android:focusableInTouchMode="false"
             android:id="@+id/password1"
             android:layout_width="150dp"
             android:layout_height="50dp"
