@@ -15,7 +15,6 @@ import com.example.ezbillmanager.utils.NetManager;
 
 public class Login extends AppCompatActivity {
 
-
     private Button btn;
     private TextView tv_userid;
     private TextView tv_password;
@@ -48,6 +47,9 @@ public class Login extends AppCompatActivity {
                         else
                         {
                             int x=netManager.usrRegister(userid,password);
+                            userInfo userinfo= userInfo.getInstance();
+                            userinfo.setId(userid);
+                            userinfo.setPassword(password);
                             success=(x==1);
                         }
                     }

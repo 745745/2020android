@@ -115,17 +115,21 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
                     android:textColor="#333333"/>
-                <Button
-                    android:id="@+id/btn_classify"
+                <EditText
+                    android:id="@+id/textview_classify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
                     android:layout_alignParentRight="true"
-                    android:text="FOOD"
+                    android:text="请输入"
+                    android:maxLength="5"
                     android:textColor="#808080"
+                    android:textStyle="bold"
                     android:gravity="right|center"
                     android:layout_centerVertical="true"
                     android:textSize="18dp"
+                    android:hint="0.00"
+                    android:singleLine="true"
                     android:background="@null"/>
 
             </RelativeLayout>

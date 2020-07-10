@@ -255,7 +255,6 @@ public class Chart extends AppCompatActivity {
             }
         });
 
-        //chart页面选取的饼状图实现具体实现参考：https://github.com/ithedan/HeDan_Piechart/blob/master/README.md
 
         //右键：由本月->本季度->本年
         btn_up.setOnClickListener(new View.OnClickListener() {
