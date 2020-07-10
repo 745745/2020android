@@ -93,7 +93,10 @@ public class Account extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String string = et_money.getText().toString();
-                t = -1*Integer.parseInt(string);
+                if(inorout==true)
+                    t = Integer.parseInt(string);
+                else
+                    t =-1* Integer.parseInt(string);
                 string1 = textview_classify.getText().toString();
 
 
@@ -102,7 +105,6 @@ public class Account extends AppCompatActivity {
                 date = initDate();
                 str = date.year+"."+date.month+"."+date.monthDay;
                 final userInfo userinfo=userInfo.getInstance();
-
                 //
 
 
@@ -150,9 +152,9 @@ public class Account extends AppCompatActivity {
     {
         date = new Time();
         date.setToNow();
-        year=date.year;
-        month=date.month;
-        day=date.monthDay;
+        date.year=date.year;
+        date.month=date.month+1;
+        date.monthDay=date.monthDay;
         return date;
     }
 }
