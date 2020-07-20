@@ -98,7 +98,7 @@ public class home_page extends AppCompatActivity {
         date = new Time();
         date.setToNow();
         date.month = date.month +1;
-        tv_month.setText(String.valueOf(date.month));
+        tv_month.setText("本月");
         final userInfo userinfo = userInfo.getInstance();
 //
 //
@@ -157,7 +157,7 @@ public class home_page extends AppCompatActivity {
                         data1.putString("data",key);
                         intent.putExtras(data1);
                         startActivity(intent);
-                        home_page.this.finish();
+                       // home_page.this.finish();
                     }
                 });
 
@@ -303,7 +303,7 @@ public class home_page extends AppCompatActivity {
                                 data1.putString("data",key);
                                 intent.putExtras(data1);
                                 startActivity(intent);
-                                home_page.this.finish();
+                                //home_page.this.finish();
                             }
                         });
                         tx.add(textView);
@@ -441,7 +441,7 @@ public class home_page extends AppCompatActivity {
                                 Intent intent=new Intent(home_page.this, modifyBill.class);
                                 intent.putExtra("data",textView.getText().toString());
                                 startActivity(intent);
-                                home_page.this.finish();
+                                //home_page.this.finish();
                             }
                         });
 

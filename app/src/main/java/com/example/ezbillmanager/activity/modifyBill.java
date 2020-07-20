@@ -81,7 +81,7 @@ public class modifyBill extends AppCompatActivity {
                 }
                 Intent intent1=new Intent(modifyBill.this, home_page.class);
                 startActivity(intent1);
-                //modifyBill.this.finish();
+                modifyBill.this.finish();
             }
         });
 
